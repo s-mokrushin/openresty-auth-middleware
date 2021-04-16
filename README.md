@@ -1,4 +1,4 @@
-# Lua based Basic authorization
+# OpenResty Auth Middleware
 
 Example of basic digest authentication as middleware in nginx (OpenResty).
 
