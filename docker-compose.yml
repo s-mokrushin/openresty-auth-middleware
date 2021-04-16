@@ -1,0 +1,16 @@
+version: '3'
+services:
+  nginx:
+    build: .
+    ports:
+      - "8090:80"
+      - "8091:81"
+    links:
+      - memcache:memcache
+      - fpm:fpm
+    environment:
+      AUTH_API_URL: "http://fpm:8080"
+  fpm:
+    build: ./php
+  memcache:
+    image: "memcached:latest"
