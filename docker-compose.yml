@@ -1,16 +1,16 @@
 version: '3'
 services:
-  nginx:
-    build: .
+  openresty:
+    build: ./openresty
     ports:
       - "8090:80"
       - "8091:81"
     links:
       - memcache:memcache
-      - fpm:fpm
+      - api:api
     environment:
-      AUTH_API_URL: "http://fpm:8080"
-  fpm:
+      AUTH_API_URL: "http://api:8080"
+  api:
     build: ./php
   memcache:
     image: "memcached:latest"
